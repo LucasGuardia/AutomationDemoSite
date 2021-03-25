@@ -8,8 +8,12 @@ context('Automation Demo Site', () => {
     beforeEach(() => {
         Register.acessarLogin()
     })
+
+    afterEach(() =>{
+        cy.screenshot()
+    })
     
-    it('Register New User', () => {
+    it.only('Register New User', () => {
         Register.insertInfoPersonal(
             user.nome, 
             user.sobrenome,
