@@ -6,66 +6,32 @@ const user = require ('../support/variables').user1;
 context('Automation Demo Site', () => {
 
     beforeEach(() => {
-        Register.acessarLogin()
+        Register.acessarSite()
+        // cy.visit('/')
     })
 
     afterEach(() =>{
-        cy.screenshot()
+        
     })
     
     it.only('Register New User', () => {
+
         Register.insertInfoPersonal(
             user.nome, 
             user.sobrenome,
             user.description,
             user.email,
-            user.phone
+            user.phone,
+            'FeMale'
         )
 
-        cy
-            .get('input[name=radiooptions]')
-            .check('FeMale')
-
-        cy
-            .get('input[type=checkbox]')
-            .check('Movies')
-
-        cy
-            .get('select#Skills')
-            .select('Ruby')
-
-        cy
-            .get('select#countries')
-            .select('Brazil')
-
-        cy
-            .get('select#country')
-            .select('Japan', {force: true});
-
-        cy
-            .get('select#yearbox')
-            .select('1992');
-
-        cy
-            .get('select[ng-model=monthbox]')
-            .select('April');
-
-        cy
-            .get('select#daybox')
-            .select('14');
-
-        cy
-            .get('input#firstpassword')
-            .type('Abc@123');
-
-        cy
-            .get('input#secondpassword')
-            .type('Abc@123');
-
-        cy
-            .get('button#submitbtn')
-            .click()
-
+        Register.selectHobbies('Movies')
+        Register.selectSkills('Ruby')
+        Register.selectCountries('Brazil')
+        Register.selectCountry('Japan')
+        Register.insertBirthday('1992', 'April', '15')
+        Register.insertPasswords('Abc@123', 'Abc@123')
+        Register.buttonSubmit()
     });
 
 });

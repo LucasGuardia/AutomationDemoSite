@@ -4,8 +4,16 @@ export const ELEMENTS = {
     lastName: 'input[ng-model="LastName"]',
     description: 'textarea[ng-model="Adress"]',
     emailAddress: 'input[ng-model="EmailAdress"]',
-    phone: 'input[ng-model=Phone]'
+    phone: 'input[ng-model=Phone]',
+    gender: 'input[name=radiooptions]',
+    hobbies: 'input[type=checkbox]',
+    skills: 'select#Skills',
+    country: 'select#countries',
+    selectCountry: 'select#country',
+    yearBirthday: 'select#yearbox',
+    monthBirthday: 'select[ng-model=monthbox]',
+    dayBirthday: 'select#daybox',
+    password: 'input#firstpassword',
+    confirmPassword: 'input#secondpassword',
+    submitRegister: 'button#submitbtn'
 }
-
-// Na página elements criamos um objeto e dentro dele mapeamos os elementos da página
-// Exportamos esses elementos para serem utilizados na página index
